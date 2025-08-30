@@ -1,0 +1,36 @@
+body{
+    background-color: darkblue;
+    text-align: center;
+    color:aqua;
+    font-family:'Times New Roman', Verdana;
+}
+
+a{
+    color:blueviolet;
+    text-decoration: none;
+}
+
+a:hover{
+    color:darkorange;
+    text-decoration: underline;
+}
+
+main{
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2{
+    text-align: center;
+}
+
+img{
+    width: 10%;
+}
+
+figure{
+    text-align: center;
+    font-style: italic;
+}
+

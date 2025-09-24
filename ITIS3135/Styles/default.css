@@ -1,5 +1,5 @@
 body{
-    background-color: darkblue;
+    background: linear-gradient(#03256C, #141204);
     text-align: center;
     color:aqua;
     font-family:'Times New Roman', Verdana;
@@ -33,5 +33,12 @@ img{
 figure{
     text-align: center;
     font-style: italic;
+}
+
+fieldset{
+    border-color: aqua;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 40px auto;
 }
 

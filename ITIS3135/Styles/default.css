@@ -1,5 +1,7 @@
 body{
-    background: linear-gradient(#03256C, #141204);
+    background: linear-gradient(180deg, #03256C, #141204);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
     color:aqua;
     font-family:'Times New Roman', Verdana;

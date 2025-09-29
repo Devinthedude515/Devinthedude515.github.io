@@ -45,3 +45,7 @@ fieldset{
     margin: 40px auto;
 }
 
+p{
+    font-size: 1.2rem;
+    text-align: center;
+}

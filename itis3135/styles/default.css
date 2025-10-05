@@ -1,0 +1,51 @@
+body{
+    background: linear-gradient(180deg, #03256C, #141204);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color:aqua;
+    font-family:'Times New Roman', Verdana;
+}
+
+a{
+    color: lightgreen;
+    text-decoration: none;
+}
+
+a:hover{
+    color:darkorange;
+    text-decoration: underline;
+}
+
+main{
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2{
+    text-align: center;
+}
+
+img{
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+}
+
+figure{
+    text-align: center;
+    font-style: italic;
+}
+
+fieldset{
+    border-color: aqua;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+p{
+    font-size: 1.2rem;
+    text-align: center;
+}

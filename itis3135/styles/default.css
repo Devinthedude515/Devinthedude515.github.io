@@ -5,6 +5,8 @@ body{
     text-align: center;
     color:aqua;
     font-family:'Times New Roman', Verdana;
+    font-size: 18px;
+    padding: 20px;
 }
 
 a{
@@ -19,8 +21,9 @@ a:hover{
 
 main{
     text-align: left;
-    margin-left: 20%;
-    margin-right: 20%;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h2{
@@ -48,4 +51,50 @@ fieldset{
 p{
     font-size: 1.2rem;
     text-align: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+}
+
+th{
+    background-color: linear-gradient(180deg, #03256C, #141204);
+    color: aqua;
+    padding: 10px;
+}
+
+td{
+    border: 1px solid aqua;
+    padding: 10px;
+    vertical-align: top;
+}
+
+caption{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+@media (max-width: 767px){
+    body{
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    body{
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1024px){
+    body{
+        font-size: 18px;
+        padding: 20px;
+    }
 }

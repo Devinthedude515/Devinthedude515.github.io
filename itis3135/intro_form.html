@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction Form</title>
+    <style>
+        fieldset{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"]{
+            width: 100%;
+            max-width: 500;
+            box-sizing: border-box;
+        }
+
+        legend{
+            font-size: 1.5rem;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+    <main>
+        <h1>Introduction Form</h1>
+        <h3>Please submit the form below</h3>
+        <form id="byo-form">
+            <fieldset>
+                <legend>Name Information</legend>
+                <!--First Name-->
+                <label for="firstName">Enter First Name:</label>
+                <input type="text" id="firstName" name="firstname" placeholder="first name" value="Devin">
+                <!--Middle Name-->
+                <label for="middleInitial">Enter Middle Name:</label>
+                <input type="text" id="middleInitial" name="middleInitial" placeholder="Ex. If Hamilton then 'H'" maxlength="1" value="Giovanni">
+                <!--Preffered Name-->
+                <label for="prefName">Enter Middle Name:</label>
+                <input type="text" id="prefName" name="prefName" placeholder="Ex.If Devin go by 'Dev'" value="none">
+                <!--Last Name-->
+                <label for="lastName">Enter Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="last name" value="Williams">
+            </fieldset>
+            <fieldset>
+                <legend>Acknowledgement</legend>
+                <!--Statement-->
+                <label for="ackStatement">Acknowledgement Statement:</label>
+                <textarea
+                    rows="5" 
+                    cols="5"
+                    id="ackStatement"
+                    name="ackStatement" 
+                    placeholder="Please type: I acknowledge that anything and everything I post here is made available to the public -Initials"
+                    >I acknowledge that anything and everything I post here is made available to the public -DGW</textarea>
+                <!--Date-->
+                <label for="ackDate">Current Date:</label>
+                <input type="text" id="ackDate" name="ackDate" placeholder="MM/DD/YYYY" value="10/24/2025">
+            </fieldset>
+            <fieldset>
+                <legend>Mascot</legend>
+                <!--Characteristic-->
+                <label for="charMascot">Characteristic of Mascot:</label>
+                <input type="text" id="charMascot" name="charMascot" placeholder="Deceptive, Curious, Joyful, etc." value="Deceptive"/>
+                <!--Animal-->
+                <label for="animalMascot">Animal Mascot:</label>
+                <input type="text" id="animalMascot" name="animalMascot" placeholder="Cat, Dog, Chicken, etc." value="Wolverine"/>
+                <!--Divider-->
+                <label for="mascotDiv">Mascot Divider:</label>
+                <input type="text" id="mascotDiv" name="mascotDiv" placeholder="/, ~, ☢️, etc." value="|"/>
+            </fieldset>
+            <fieldset>
+                <legend>Photo</legend>
+                <!--Photo upload-->
+                <label for="imgUpload">Upload Image:</label>
+                <input type="file" id="imgUpload" name="imageUpload" accept="image/*"/>
+                <!--Photo Caption-->
+                <label for="imgCaption">Enter Caption:</label>
+                <input type="text" id="imgCaption" name="imgCaption" placeholder="Describe photo" value="A professional photo"/>
+            </fieldset>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <!--Personal Statement-->
+                <label for="perStatement">Tell us about yourself:</label>
+                <textarea
+                    rows="5" 
+                    cols="5"
+                    id="perStatement"
+                    name="perStatement" 
+                    placeholder="Personal Statement: Where are you from? What are your interests? Future goals?"
+                    >Hello everyone, my name is Devin Williams and I am originally from Cincinnati, OH. I have been living in Charlotte since I was ten years old in 2009. I am into Sci-fi/fantasy media meaning anything surrounding games, books, movies, graphic novels, and t.v. shows. I also cosplay and go to events from time to time. I look forward to meeting everyone during this semester.</textarea>
+                <!--Personal Background-->
+                <label for="perBackground">Personal Background:</label>
+                <textarea
+                    rows="5" 
+                    cols="5"
+                    id="perBackground"
+                    name="perBackground" 
+                    placeholder="Anything else to tell us about you?"></textarea>
+                <!--Professional Background-->
+                <label for="profBackground">Professional Background:</label>
+                <textarea
+                    rows="5" 
+                    cols="5"
+                    id="profBackground"
+                    name="profBackground" 
+                    placeholder="Breif summary of Computer Related Background."></textarea>
+                <!--Personal Computer-->
+                <label for="PC">Personal Computer:</label>
+                <textarea
+                    rows="5" 
+                    cols="5"
+                    id="PC"
+                    name="PC" 
+                    placeholder="What is your primary Computer? Who manufactured it?"></textarea>
+                <!--Courses enrolled-->
+                <!--Course One-->
+                <label for="coursesTaking">Enter First course enrolled:</label>
+                <input type="text" id="coursesTaking" name="coursesTaking" placeholder="ex. ITSC 3688 Computers Impact on Society"/>
+                <label for="whyCourseTaking">Why?</label>
+                <input type="text" id="whyCourseTaking" name="whyCourseTaking" placeholder="Brief reason..."/>
+            </fieldset>
+            <fieldset>
+                <legend>Qoute/Funny or Interesting thing/Something to Share</legend>
+                <!--Quote-->
+                <label for="quote">Enter a Quote:</label>
+                <input type="text" id="quote" name="qoute" placeholder="ex. Eh, *smack* *smack* *smack*, What's up Doc?"/>
+                <!--Author-->
+                <label for="author">Name Author of Quote:</label>
+                <input type="text" id="author" name="author" placeholder="ex. Bugs Bunny"/>
+                <!--Funny/interesting thing-->
+                <label for="funOrInt">Funny or Interesting thing about you:</label>
+                <input type="text" id="funOrInt" name="funOrInt" placeholder="ex. This one time, at band camp...."/>
+                <!--Share-->
+                <label for="share">Anything else to share?</label>
+                <input type="text" id="share" name="share" placeholder="ex. I'm a secret agent"/>
+            </fieldset>
+            <fieldset>
+                <legend>Links</legend>
+                <!--Home-->
+                <label for="home">Enter link of Homepage:</label>
+                <input type="url" id="home" name="home" placeholder="webpages.charlotte.edu/uncc-id"/>
+                <!--GitHub-->
+                <label for="GitHub">Enter link of GitHub:</label>
+                <input type="url" id="GitHub" name="GitHub" placeholder="github.com/username"/>
+                <!--GitHub.io-->
+                <label for="GitHubio">Enter link of GitHub.io:</label>
+                <input type="url" id="GitHubio" name="GitHubio" placeholder="github.com/username/username.io"/>
+                <!--LinkedIn-->
+                <label for="LinkedIn">Enter link of LinkedIn:</label>
+                <input type="url" id="LinkedIn" name="LinkedIn" placeholder="linkedin.com/in/profile-code"/>
+            </fieldset>
+            <button id="submit" type="submit">Submit</button>
+            <button id="reset" type="reset">Reset</button>
+            <button id="clear" type="button">Clear</button>
+
+        </form>
+    </main>
+    <div data-include="components/footer.html"></div>   
+    <script src="scripts/HTMLInclude.min.js"></script>
+</body>
+</html>

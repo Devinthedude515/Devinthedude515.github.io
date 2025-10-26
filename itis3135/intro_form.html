@@ -10,17 +10,17 @@
             flex-direction: column;
             gap: 10px;
         }
-
         input[type="text"]{
             width: 100%;
             max-width: 500;
             box-sizing: border-box;
         }
-
         legend{
             font-size: 1.5rem;
         }
-
+        nav{
+            align-items: center;
+        }
     </style>
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -28,9 +28,9 @@
 <body>
     <div data-include="components/header.html"></div>
     <main>
-        <h1>Introduction Form</h1>
-        <h3>Please submit the form below</h3>
         <form id="byo-form">
+            <h1>Introduction Form</h1>
+            <h3>Please submit the form below</h3>
             <fieldset>
                 <legend>Name Information</legend>
                 <!--First Name-->
@@ -38,9 +38,9 @@
                 <input type="text" id="firstName" name="firstname" placeholder="first name" value="Devin">
                 <!--Middle Name-->
                 <label for="middleInitial">Enter Middle Name:</label>
-                <input type="text" id="middleInitial" name="middleInitial" placeholder="Ex. If Hamilton then 'H'" maxlength="1" value="Giovanni">
+                <input type="text" id="middleInitial" name="middleInitial" placeholder="Ex. If Hamilton then 'H'" maxlength="1" value="G">
                 <!--Preffered Name-->
-                <label for="prefName">Enter Middle Name:</label>
+                <label for="prefName">Enter Preffered Name: (optional)</label>
                 <input type="text" id="prefName" name="prefName" placeholder="Ex.If Devin go by 'Dev'" value="none">
                 <!--Last Name-->
                 <label for="lastName">Enter Last Name:</label>
@@ -57,9 +57,14 @@
                     name="ackStatement" 
                     placeholder="Please type: I acknowledge that anything and everything I post here is made available to the public -Initials"
                     >I acknowledge that anything and everything I post here is made available to the public -DGW</textarea>
+                <!-- Checkbox -->
+                <div>
+                <input type="checkbox" id="ackCheckbox">
+                <label for="ackCheckbox">I acknowledge the above statement.</label>
+                </div>
                 <!--Date-->
                 <label for="ackDate">Current Date:</label>
-                <input type="text" id="ackDate" name="ackDate" placeholder="MM/DD/YYYY" value="10/24/2025">
+                <input type="text" id="ackDate" name="ackDate" placeholder="MM/DD/YYYY" value="10/24/2025" readonly>
             </fieldset>
             <fieldset>
                 <legend>Mascot</legend>
@@ -70,8 +75,8 @@
                 <label for="animalMascot">Animal Mascot:</label>
                 <input type="text" id="animalMascot" name="animalMascot" placeholder="Cat, Dog, Chicken, etc." value="Wolverine"/>
                 <!--Divider-->
-                <label for="mascotDiv">Mascot Divider:</label>
-                <input type="text" id="mascotDiv" name="mascotDiv" placeholder="/, ~, ☢️, etc." value="|"/>
+                <label for="mascotSymbol">Mascot Divider:</label>
+                <input type="text" id="mascotSymbol" name="mascotSymbol" placeholder="/, ~, ☢️, etc." value="|"/>
             </fieldset>
             <fieldset>
                 <legend>Photo</legend>
@@ -119,13 +124,11 @@
                     placeholder="What is your primary Computer? Who manufactured it?"></textarea>
                 <!--Courses enrolled-->
                 <!--Course One-->
-                <label for="coursesTaking">Enter First course enrolled:</label>
-                <input type="text" id="coursesTaking" name="coursesTaking" placeholder="ex. ITSC 3688 Computers Impact on Society"/>
-                <label for="whyCourseTaking">Why?</label>
-                <input type="text" id="whyCourseTaking" name="whyCourseTaking" placeholder="Brief reason..."/>
+                <div id="courses-taking"></div>
+                <button id="add-course" type="button">Add Course:</button>
             </fieldset>
             <fieldset>
-                <legend>Qoute/Funny or Interesting thing/Something to Share</legend>
+                <legend>Quote/Funny or Interesting thing/Something to Share</legend>
                 <!--Quote-->
                 <label for="quote">Enter a Quote:</label>
                 <input type="text" id="quote" name="qoute" placeholder="ex. Eh, *smack* *smack* *smack*, What's up Doc?"/>
@@ -153,14 +156,18 @@
                 <!--LinkedIn-->
                 <label for="LinkedIn">Enter link of LinkedIn:</label>
                 <input type="url" id="LinkedIn" name="LinkedIn" placeholder="linkedin.com/in/profile-code"/>
+                <!--FreeCodeCamp-->
+                <label for="FCC">Enter link of FreeCodeCamp:</label>
+                <input type="url" id="FCC" name="FCC" placeholder="freecodecamp.org/profile-code">
             </fieldset>
-            <button id="submit" type="submit">Submit</button>
+            <button id="submitButton" type="button">Submit</button>
             <button id="reset" type="reset">Reset</button>
-            <button id="clear" type="button">Clear</button>
-
+            <button id="clear-all" type="button">Clear</button>
         </form>
-    </main>
-    <div data-include="components/footer.html"></div>   
+        <div id="outputDiv"></div>
+    </main>  
     <script src="scripts/HTMLInclude.min.js"></script>
+    <script src="scripts/introduction.js"></script>
+
 </body>
 </html>

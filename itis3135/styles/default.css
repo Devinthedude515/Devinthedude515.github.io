@@ -9,6 +9,12 @@ body{
     padding: 20px;
 }
 
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 a{
     color: lightgreen;
     text-decoration: none;
@@ -26,9 +32,10 @@ main{
     margin: 0 auto;
 }
 
-h2{
+h1, h2, h3{
     text-align: center;
 }
+
 
 img{
     width: 20%;

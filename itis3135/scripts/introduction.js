@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //add new blank course
     addButton.addEventListener('click', () => addCourseField(''));
     //Pre load courses
-    const classes = ['ITIS3135', 'ITIS3200', 'ITSC3155', 'ITCS3160'];
+    const classes = ['ITIS 3160', 'ITIS 3135', 'ITIS 3146', 'ITIS 3155'];
     classes.forEach((classItem) => {
         addCourseField(classItem);
     });

@@ -36,7 +36,7 @@ const fields = [
     mascotSymbol, imgUpload, imgCaption, perStatement, 
     perBackground, profBackground, PC, coursesTaking,
     quote, author, funOrInt, share,
-    home, GitHub, GitHubio, LinkedIn
+    home, GitHub, GitHubio, LinkedIn, FCC
 ].filter(Boolean);
 
 const emptyFields = () => {
@@ -186,10 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li><b><u>Quote:</b></u> "${quote.value}" -<i>${author.value}</i></li>
             </ul>
             <nav>
-                <a href="${home.value}" target="_blank">CLT Web </a> ||
-                <a href="${GitHub.value}" target="_blank"> GitHub </a> ||
-                <a href="${GitHubio.value}" target="_blank"> GitHub.io </a> ||
-                <a href="${FCC.value}" target="_blank"> freeCodeCamp </a> ||
+                <a href="${home.value}" target="_blank">CLT Web </a> || 
+                <a href="${GitHub.value}" target="_blank"> GitHub </a> || 
+                <a href="${GitHubio.value}" target="_blank"> GitHub.io </a> || 
+                <a href="${FCC.value}" target="_blank"> freeCodeCamp </a> || 
                 <a href="${LinkedIn.value}" target="_blank">LinkedIn</a>
             </nav>
         `;

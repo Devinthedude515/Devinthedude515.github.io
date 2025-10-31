@@ -23,6 +23,11 @@
         }
     </style>
     <link rel="stylesheet" href="styles/default.css">
+    <!-- Highlight.js CDN -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -160,14 +165,31 @@
                 <label for="FCC">Enter link of FreeCodeCamp:</label>
                 <input type="url" id="FCC" name="FCC" placeholder="freecodecamp.org/profile-code" value="https://www.freecodecamp.org/fcc-2cfb918d-d7d3-4b1f-b356-76f5751d3961"/>
             </fieldset>
+            <!--Buttons for the form-->
             <button id="submitButton" type="button">Submit</button>
             <button id="reset" type="reset">Reset</button>
             <button id="clear-all" type="button">Clear</button>
+            <button id="generateJSON" type="button">Generate JSON</button>
         </form>
+        <!--Hide the form after submission-->
         <div id="outputDiv"></div>
+        <section>
+            <h2>Introduction HTML</h2>
+            <pre>
+                <code class="language-json">
+                {
+                    "firstName": "Devin",
+                    "lastName": "Williams",
+                    "mascotAnimal": "Wolverine",
+                    "personalStatement": "I love learning web development."
+                }
+                </code>
+            </pre>
+        </section>
     </main>  
     <script src="scripts/HTMLInclude.min.js"></script>
     <script src="scripts/introduction.js"></script>
+    <script src="scripts/generate_json.js"></script>
     <p>Page built by <a href="dwdesignz.com/">D.W. Designz, Inc.</a> &copy; 2025</p>
 </body>
 </html>

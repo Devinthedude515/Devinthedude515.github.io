@@ -15,6 +15,11 @@ nav{
     justify-content: center;
 }
 
+h3{
+    display: flex;
+    align-items: left;
+}
+
 a{
     color: lightgreen;
     text-decoration: none;
@@ -32,7 +37,7 @@ main{
     margin: 0 auto;
 }
 
-h1, h2, h3{
+h1, h2{
     text-align: center;
 }
 

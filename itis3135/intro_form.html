@@ -21,11 +21,50 @@
         nav{
             align-items: center;
         }
+
+        #after-submit-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #after-submit-buttons button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            background-color: #0077cc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+        #after-submit-buttons button:hover {
+        background-color: #005fa3;
+        }
+
+        #jsonPopup, #htmlPopup {
+            color: black;           /* Light text for contrast */
+            border: 2px solid #0077cc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: monospace;
+            white-space: pre-wrap; /* keeps line breaks */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
     <link rel="stylesheet" href="styles/default.css">
     <!-- Highlight.js CDN -->
     <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -169,32 +208,16 @@
             <button id="submitButton" type="button">Submit</button>
             <button id="reset" type="reset">Reset</button>
             <button id="clear-all" type="button">Clear</button>
-            <button id="generateJSON" type="button">Generate JSON</button>
-            <button id="generateHTML" type="button">Generate HTML</button>
         </form>
         <!--Hide the form after submission-->
         <div id="outputDiv"></div>
-        <section>
-            <h2>Introduction HTML</h2>
-            <pre>
-                <code class="language-json">
-                {
-                    "firstName": "Devin",
-                    "lastName": "Williams",
-                    "mascotAnimal": "Wolverine",
-                    "personalStatement": "I love learning web development."
-                }
-                </code>
-            </pre>
-        </section>
     </main>  
     <script src="scripts/HTMLInclude.min.js"></script>
-    <script src="scripts/introduction.js"></script>
-    <script src="scripts/generate_json.js"></script>
-    <script src="scripts/generate_html.js"></script>
+    <script type="module" src="scripts/introduction.js"></script>
+    <script type="module" src="scripts/generate_json.js"></script>
+    <script type="module" src="scripts/generate_html.js"></script>
     <footer>
         <p>Page built by <a href="dwdesignz.com/">D.W. Designz, Inc.</a> &copy; 2025</p>
     </footer>
-    
 </body>
 </html>

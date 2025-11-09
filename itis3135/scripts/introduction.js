@@ -1,3 +1,5 @@
+import { generateJSON } from './generate_json.js';
+import { generateHTML } from './generate_html.js';
 const firstName = document.getElementById("firstName");
 const middleInitial = document.getElementById("middleInitial");
 const prefName = document.getElementById("prefName");
@@ -48,6 +50,8 @@ const formElement = document.getElementById("byo-form");
   formElement.addEventListener("submit", (e) => e.preventDefault()); // prevents page refresh / default behavior
 
 document.addEventListener('DOMContentLoaded', () => {
+    //improve hiding of
+    const outputDiv = document.getElementById("outputDiv");
     // Function to re-number all course labels
     function updateCourseNumbers() {
         const courseItems = coursesTaking.querySelectorAll('.course-item');
@@ -93,109 +97,242 @@ document.addEventListener('DOMContentLoaded', () => {
         addCourseField(classItem);
     });
 
-    submitButton.addEventListener('click', () => {
-       // Clear previous output
-        outputDiv.innerHTML = '';
-       // Collect all required fields
-        const requiredFields = [
-        'firstName',
-        'middleInitial',
-        'lastName',
-        'mascotSymbol',
-        'charMascot',
-        'animalMascot',
-        'perStatement',
-        'perBackground',
-        'profBackground',
-        'funOrInt',
-        'quote',
-        'author',
-        'home',
-        'GitHub',
-        'GitHubio',
-        'LinkedIn',
-        'FCC'
-        ];
-
-        // Check if any required field is empty
-        const emptyFields = requiredFields.filter((id) => {
-            const field = document.getElementById(id);
-            return !field.value.trim();
+    function collectFormData() {
+        // Collect courses
+        const courses = [];
+        const courseItems = coursesTaking.querySelectorAll('.course-item');
+        courseItems.forEach((item) => {
+            const nameInput = item.querySelector('input');
+            const reasonInput = item.querySelector('textarea');
+            if (nameInput && nameInput.value.trim() !== '') {
+                courses.push({
+                    name: nameInput.value.trim(),
+                    reason: reasonInput ? reasonInput.value.trim() : ""
+                });
+            }
         });
 
-        // If there are empty fields, prevent submission
-        if (emptyFields.length > 0) {
-            event.preventDefault();
-            alert(`Please fill in all required fields before submitting.\n\nMissing: ${emptyFields.join(', ')}`);
-            return;
-        }
-       // Check uploaded image type
-        const imageField = imgUpload; // from your fields array
-        if (imageField.files.length === 0) {
-            alert('Please upload an image.');
-            return;
-        }
+        // Collect links
+        const links = [
+            { name: "Home", href: home.value },
+            { name: "GitHub", href: GitHub.value },
+            { name: "GitHub.io", href: GitHubio.value },
+            { name: "LinkedIn", href: LinkedIn.value },
+            { name: "freeCodeCamp", href: FCC.value }
+        ];
 
-        //check the acknowledge is entered
-        if (!ackCheckbox.checked) {
-            event.preventDefault(); // stop form submission
-            alert('Please check the acknowledgement box before submitting.');
-            return;
-        }
+        return {
+            firstName: firstName.value,
+            preferredName: prefName.value,
+            middleInitial: middleInitial.value,
+            lastName: lastName.value,
+            divider: mascotSymbol.value,
+            mascotAdjective: charMascot.value,
+            mascotAnimal: animalMascot.value,
+            image: imgUpload.files[0] ? URL.createObjectURL(imgUpload.files[0]) : "",
+            imageCaption: imgCaption.value,
+            personalStatement: perStatement.value,
+            personalBackground: perBackground.value,
+            professionalBackground: profBackground.value,
+            primaryComputer: PC.value,
+            courses,
+            links
+        };
+    }//end of collect form data
 
-        const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
-        //check if allowed
-        if (!allowedTypes.includes(imageField.files[0].type)){
-            alert('Invalid File upload, please se PNG or JPG.');
-            return;
-        }
+    submitButton.addEventListener('click', () => {
+        // Clear previous output
+            outputDiv.innerHTML = '';
+        // Collect all required fields
+            const requiredFields = [
+            'firstName',
+            'middleInitial',
+            'lastName',
+            'mascotSymbol',
+            'charMascot',
+            'animalMascot',
+            'perStatement',
+            'perBackground',
+            'profBackground',
+            'funOrInt',
+            'quote',
+            'author',
+            'home',
+            'GitHub',
+            'GitHubio',
+            'LinkedIn',
+            'FCC'
+            ];
 
-        function getCoursesHTML() {
-            const courseItems = coursesTaking.querySelectorAll('.course-item');
-            let html = '<ul>';
-            courseItems.forEach((item) => {
-                const courseInput = item.querySelector('input');
-                const reasonInput = item.querySelector('textarea');
-                const courseName = courseInput ? courseInput.value.trim() : '';
-                const reason = reasonInput ? reasonInput.value.trim() : '';
-                if (courseName) {
-                    html += `<li><b>${courseName}</b>${reason ? ` – ${reason}` : ''}</li>`;
-                }
+            // Check if any required field is empty
+            const emptyFields = requiredFields.filter((id) => {
+                const field = document.getElementById(id);
+                return !field.value.trim();
             });
-            html += '</ul>';
-            return html;
-        }
 
-        // Display the form
-        const imgFile = imgUpload.files[0];
-        outputDiv.innerHTML = `
-        <h2>Introduction</h2>
-        <h3>${firstName.value} ${middleInitial.value}. "${prefName.value}" ${lastName.value} ${mascotSymbol.value} ${charMascot.value} ${animalMascot.value}</h3>
-            <figure>
-                <img src="${URL.createObjectURL(imgFile)}" alt="${imgCaption.value}">
-                <figcaption>${imgCaption.value}</figcaption>
-            </figure>
-            <ul>
-                <li><b><u><span>Personal Statement:</b></u> <span> ${perStatement.value}</li>
-                <li><b><u><span>Personal Background:</b></u> </span> ${perBackground.value}</li>
-                <li><b><u><span>Professional Background:</b></u> </span> ${profBackground.value}</li>
-                <li><b><u><span>Primary Computer Platform:</b></u> </span> ${PC.value}</li>
-                <li><b><u><span>Courses I'm Taking:</b></u> </span> ${getCoursesHTML()} </li>
-                <li><b><u><span>Funny/Interesting thing to remember me by:</b></u> </span> ${funOrInt.value}</li>
-                <li><b><u><span>Anything Else:</b></u> </span> ${share.value}</li>
-                <li><b><u>Quote:</b></u> "${quote.value}" -<i>${author.value}</i></li>
-            </ul>
-            <nav>
-                <a href="${home.value}" target="_blank">CLT Web </a> || 
-                <a href="${GitHub.value}" target="_blank"> GitHub </a> || 
-                <a href="${GitHubio.value}" target="_blank"> GitHub.io </a> || 
-                <a href="${FCC.value}" target="_blank"> freeCodeCamp </a> || 
-                <a href="${LinkedIn.value}" target="_blank">LinkedIn</a>
-            </nav>
-        `;
-        // Hide the form after generating the page
-        form.style.display = 'none';
-    });
+            // If there are empty fields, prevent submission
+            if (emptyFields.length > 0) {
+                event.preventDefault();
+                alert(`Please fill in all required fields before submitting.\n\nMissing: ${emptyFields.join(', ')}`);
+                return;
+            }
+            // Check uploaded image type
+            const imageField = imgUpload; // from your fields array
+            if (imageField.files.length === 0) {
+                alert('Please upload an image.');
+                return;
+            }
+
+            //check the acknowledge is entered
+            if (!ackCheckbox.checked) {
+                event.preventDefault(); // stop form submission
+                alert('Please check the acknowledgement box before submitting.');
+                return;
+            }
+
+            const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+            //check if allowed
+            if (!allowedTypes.includes(imageField.files[0].type)){
+                alert('Invalid File upload, please se PNG or JPG.');
+                return;
+            }
+
+            function getCoursesHTML() {
+                const courseItems = coursesTaking.querySelectorAll('.course-item');
+                let html = '<ul>';
+                courseItems.forEach((item) => {
+                    const courseInput = item.querySelector('input');
+                    const reasonInput = item.querySelector('textarea');
+                    const courseName = courseInput ? courseInput.value.trim() : '';
+                    const reason = reasonInput ? reasonInput.value.trim() : '';
+                    if (courseName) {
+                        html += `<li><b>${courseName}</b>${reason ? ` – ${reason}` : ''}</li>`;
+                    }
+                });
+                html += '</ul>';
+                return html;
+            }
+
+            // Display the form
+            const imgFile = imgUpload.files[0];
+            outputDiv.innerHTML = `
+            <h2>Introduction</h2>
+            <h2>${firstName.value} ${middleInitial.value}. "${prefName.value}" ${lastName.value} ${mascotSymbol.value} ${charMascot.value} ${animalMascot.value}</h2>
+                <figure>
+                    <img src="${URL.createObjectURL(imgFile)}" alt="${imgCaption.value}">
+                    <figcaption>${imgCaption.value}</figcaption>
+                </figure>
+                <ul>
+                    <li><b><u><span>Personal Statement:</b></u> <span> ${perStatement.value}</li>
+                    <li><b><u><span>Personal Background:</b></u> </span> ${perBackground.value}</li>
+                    <li><b><u><span>Professional Background:</b></u> </span> ${profBackground.value}</li>
+                    <li><b><u><span>Primary Computer Platform:</b></u> </span> ${PC.value}</li>
+                    <li><b><u><span>Courses I'm Taking:</b></u> </span> ${getCoursesHTML()} </li>
+                    <li><b><u><span>Funny/Interesting thing to remember me by:</b></u> </span> ${funOrInt.value}</li>
+                    <li><b><u><span>Anything Else:</b></u> </span> ${share.value}</li>
+                    <li><b><u>Quote:</b></u> "${quote.value}" -<i>${author.value}</i></li>
+                </ul>
+                <nav>
+                    <a href="${home.value}" target="_blank">CLT Web </a> || 
+                    <a href="${GitHub.value}" target="_blank"> GitHub </a> || 
+                    <a href="${GitHubio.value}" target="_blank"> GitHub.io </a> || 
+                    <a href="${FCC.value}" target="_blank"> freeCodeCamp </a> || 
+                    <a href="${LinkedIn.value}" target="_blank">LinkedIn</a>
+                </nav>
+            `;
+
+            // Hide the form after generating the page
+            form.style.display = 'none';
+
+            // Create a container for new buttons
+            const buttonContainer = document.createElement("div");
+            buttonContainer.id = "after-submit-buttons";
+            buttonContainer.style.marginTop = "20px";
+            buttonContainer.style.display = "flex";
+            buttonContainer.style.gap = "10px";
+            buttonContainer.style.alignItems = "center";
+
+            // Create the JSON button
+            const jsonButton = document.createElement("button");
+            jsonButton.textContent = "Show JSON";
+            jsonButton.id = "showJSON";
+            jsonButton.type = "button";
+            
+            // Create the HTML button
+            const htmlButton = document.createElement("button");
+            htmlButton.textContent = "Show HTML";
+            htmlButton.id = "showHTML";
+            htmlButton.type = "button";
+
+            // Append both to container
+            buttonContainer.appendChild(jsonButton);
+            buttonContainer.appendChild(htmlButton);
+
+            // Add a small confirmation message below the output
+            const successMsg = document.createElement("p");
+            successMsg.textContent = "✅ Form submitted successfully!";
+            successMsg.style.color = "green";
+            successMsg.style.fontWeight = "bold";
+            successMsg.style.marginTop = "10px";
+
+            // Append success message and buttons **after the rendered form output**
+            outputDiv.appendChild(successMsg);
+            outputDiv.appendChild(buttonContainer);
+
+            jsonButton.addEventListener("click", () => {
+            let jsonPopup = document.getElementById("jsonPopup");
+            if (!jsonPopup) {
+                jsonPopup = document.createElement("div");
+                jsonPopup.id = "jsonPopup";
+                jsonPopup.style.border = "2px solid #0077cc";
+                jsonPopup.style.borderRadius = "10px";
+                jsonPopup.style.padding = "15px";
+                jsonPopup.style.backgroundColor = "#f0f8ff";
+                jsonPopup.style.marginTop = "15px";
+                jsonPopup.style.maxHeight = "300px";
+                jsonPopup.style.overflowY = "auto";
+                outputDiv.appendChild(jsonPopup);
+            }
+
+            const formData = collectFormData();
+            jsonPopup.innerHTML = `
+                <h3>JSON Output</h3>
+                <pre>${JSON.stringify(generateJSON(formData), null, 2)}</pre>
+                <button type="button" style="margin-top:10px;" onclick="this.parentNode.style.display='none'">Close JSON</button>
+            `;
+            jsonPopup.style.display = "block";
+        });
+
+        htmlButton.addEventListener("click", () => {
+            let htmlPopup = document.getElementById("htmlPopup");
+            if (!htmlPopup) {
+                htmlPopup = document.createElement("div");
+                htmlPopup.id = "htmlPopup";
+                htmlPopup.style.border = "2px solid #28a745";
+                htmlPopup.style.borderRadius = "10px";
+                htmlPopup.style.padding = "15px";
+                htmlPopup.style.backgroundColor = "#f0fff0";
+                htmlPopup.style.marginTop = "15px";
+                htmlPopup.style.maxHeight = "300px";
+                htmlPopup.style.overflowY = "auto";
+                outputDiv.appendChild(htmlPopup);
+            }
+
+            const formData = collectFormData();
+            const escapedHTML = generateHTML(formData)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            htmlPopup.innerHTML = `
+                <h3>HTML Output</h3>
+                <pre>${escapedHTML}</pre>
+                <button type="button" style="margin-top:10px;" onclick="this.parentNode.style.display='none'">Close HTML</button>
+            `;
+            htmlPopup.style.display = "block";
+        });
+    });//end of submit button event listener
+
 });
 
 //create clear all button
@@ -242,3 +379,4 @@ ackCheckbox.addEventListener('change', () => {
     ackDate.value = ''; // clear date if unchecked
   }
 });
+

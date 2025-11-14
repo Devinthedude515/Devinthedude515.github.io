@@ -6,14 +6,18 @@
     <title>Project Overview</title>
     <link rel="stylesheet" href="styles/default.css">
     <style>
-        fieldset a{
+        fieldset figure, figcaption{
             display: flex;
-            justify-content: center;
             align-items: center;
+            flex-direction: column;
+            margin: 20px 0;
         }
-        fieldset figcaption{
-            text-align: center;
-            font-style: italic;
+        fieldset ul{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 20px;
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -25,42 +29,55 @@
             <legend>Project Overview</legend>
             <ul>
                 <!--Describe the application and its purpose-->
-                <li>This application should take in Customer commissions and send them to the artist to design. Its purpose is to give life to people's imaginations and artistic endeavors for a low price</li>
+                <li>This application should take in Customer commissions and send them to the artist to design. Its purpose is to give life to people's imaginations and artistic endeavors for a low price.</li>
                 <!--Inteded Users for the site-->
                 <li>This site strives to help local businesses be able to express and advertise their goods and services in a unique way.</li>
                 <!--Overview of the content of the site-->
                 <li>The Overview of the site should include the ability to enter a commission, selecting from design choices, and getting in touch with the designer.</li>
             </ul>
         </fieldset>
-        <fieldset>
-            <legend>Client information</legend>
-            <!--Name-->
-            <li><u>Name: </u>Taylor Williams</li>
-            <!--Organization/insitute/business the client associated with-->
-            <li><u>Organization: </u></li>
-            <!--Valid fake email-->
-            <li><u>Email: </u>notrealemail@yahoo.com</li>
-            <!--Valid fake Number-->
-            <li><u>Phone: </u>(555) 555-5555</li>
-        </fieldset>
-        <figure>
-            <a href="https://app.diagrams.net/#G15oH2_OjIA4RFAcMMpMe_kLHCVh9L0HPK#%7B%22pageId%22%3A%22GE7cqkyY6_MoFsysiwC6%22%7D" target="_blank"><img src="images/wireframe.jpg" alt="WireFrame structure for home page"></a>
-            <figcaption>WireShark for home page</figcaption>
-        </figure>
+        
         <fieldset>
             <legend>Site Map</legend>
-            <a href="https://app.diagrams.net/#G1dYpABPvCaLnKIqzvYDnUt9Z94wnG-lBD#%7B%22pageId%22%3A%22kypcvPdCtWnIc6LmfKYh%22%7D" target="_blank"><img src="images/ProjectDiagram.jpg" alt="Diagram of layout" width="700" height="300"></a>
-            <figcaption>Site Map for Nav bar</figcaption>
+            <figure>
+                <a href="https://app.diagrams.net/#G1dYpABPvCaLnKIqzvYDnUt9Z94wnG-lBD#%7B%22pageId%22%3A%22kypcvPdCtWnIc6LmfKYh%22%7D" target="_blank"><img src="images/ProjectDiagram.jpg" alt="Diagram of layout" width="700" height="300"></a>
+                <figcaption>Site Map for Nav bar</figcaption>
+            </figure>
+            <figure>
+                <a  href="https://app.diagrams.net/#G15oH2_OjIA4RFAcMMpMe_kLHCVh9L0HPK#%7B%22pageId%22%3A%22GE7cqkyY6_MoFsysiwC6%22%7D" target="_blank"><img src="images/wireframe.jpg" alt="WireFrame structure for home page"></a>
+                <figcaption>WireShark for home page</figcaption>
+            </figure>
         </fieldset>
         <fieldset>
             <legend>Page Design</legend>
             <ul>
-                <li><u>Home: </u>This will contain basic overview of site goals and origin.</li>
-                <li><u>Services: </u>Lists in detail of the services provided to customers.</li>
-                <li><u>Products: </u>Explains the products the organization has available and what they are commonly used for.</li>
-                <li><u>UwU: </u>Its gonna be good I swear, fingers crossed. Rawr XD.</li>
-                <li><u>About: </u> This will contian the organization's mission goal and what it hopes to achieve.</li>
-                <li><u>How to Join: </u>Will be a apply for those who might be interested in working for the organization.</li>
+                <li><u>Home:</u> This will contain basic overview of site goals and origin.</li>
+                <li><u>Services:</u> Lists in detail of the services provided to customers.</li>
+                <li><u>Products:</u> Explains the products the organization has available and what they are commonly used for.</li>
+                <li><u>Information:</u> This page will give information on the history of the field the organization takes part in.</li>
+                <li><u>About:</u> This will contian the organization's mission goal and what it hopes to achieve.</li>
+                <li><u>How to Join:</u> Will be a apply for those who might be interested in working for the organization.</li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Dynamic Functionality</legend>
+            <p>Here are other site examples of what the customer would like for functionality</p>
+            <ul>
+                <li><a href="https://www.hollandstonefarms.com/" target="_blank">Holland Stone Farms</a></li>
+                <li><a href="https://www.pikenursery.com/pike-nurseries-ballantyne" target="_blank">Pike Nursery</a></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Client information</legend>
+            <ul>
+                <!--Name-->
+                <li><u>Name:</u> Taylor Williams</li>
+                <!--Organization/insitute/business the client associated with-->
+                <li><u>Organization:</u> Harvest Haven</li>
+                <!--Valid fake email-->
+                <li><u>Email:</u> notrealemail@yahoo.com</li>
+                <!--Valid fake Number-->
+                <li><u>Phone:</u> (555) 555-5555</li>
             </ul>
         </fieldset>
     </main>

@@ -1,0 +1,55 @@
+h1{
+    font-family: "Cinzel Decorative", serif;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF9300;
+    font-size: 3em;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+}
+nav a{
+    color: #FF9300;
+}
+nav a:hover{
+    transform: scale(1.4);
+    transition: all 0.3s ease-in-out;
+    color: lime;
+}
+body{
+    font-family: "Playfair Display", serif; 
+    background-color: #321A37;
+    color:#FF9300;
+}
+fieldset{
+    margin: 50px;
+    padding: 20px;
+    border: 2px solid #FF9300;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    
+}
+fieldset p{
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+legend{
+    font-size: 2.2em;
+    font-weight: bold;
+}
+figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+    

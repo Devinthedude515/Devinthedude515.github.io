@@ -42,6 +42,9 @@ fieldset p{
     display: flex;
     align-items: center;
 }
+fieldset ul {
+    font-size: 1.8em;
+}
 legend{
     font-size: 2.2em;
     font-weight: bold;

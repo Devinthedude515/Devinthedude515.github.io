@@ -54,6 +54,9 @@ figure{
     text-align: center;
     gap: 10px;
 }
+figcaption i{
+    display: block;
+}
 footer{
     display: flex;
     justify-content: center;

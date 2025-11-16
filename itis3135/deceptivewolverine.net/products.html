@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radical Roach Killer</title>
+    <title>Radical Roach Killer | Products</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
@@ -32,15 +32,39 @@
             margin: 0 auto;
         }
         fieldset{
+            margin: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
             border: 5px solid black;
             border-radius: 10%;
-            font-style: "Averia Sans Libre", sans-serif;
+        }
+        figure{
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: auto 400px;
-            font-size: 2rem;
-            padding: 0 auto;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+        }
+        figure img{
+            border-radius: 10%;
+        }
+        figcaption{
+            font-family: 'Nosifer', sans-serif;
+            font-size: 25px;
+            color: #F0BD05;
+        }
+        div p{
+            display: flex;
+            font-family: "Averia Sans Libre", sans-serif;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #F0BD05;
         }
         legend{
             font-family: 'Nosifer', cursive;
@@ -73,17 +97,36 @@
         <h2>Radical Roach Killer <img src="images/RoachKillerWolverine.png" alt="mascot killing roaches" width="100" height="150"></h2>
         <nav>
             <a href="about.html">About</a> |
-            <a href="products.html">Products</a>
+            <a href="products.html">Products</a> 
         </nav>
     </header>
     <main>
         <fieldset>
-            <legend>Mission Goal</legend>
-            <p>
-                At Radical Roach Killer, we know the truth: if the world ever ends, only roaches and Twinkies will survive. But not anymore. Our cutting-edge nuclear fusion roach traps bring the apocalypse to the pests themselves
-                 — without leaving scorch marks on your kitchen floor. Forget sprays, powders, or squishing with a shoe; we’re vaporizing roaches with the same science that powers the stars. Sure, it’s a little overkill,
-                  but these little creeps survived Chernobyl, so we figured it was time to escalate. With Radical Roach Killer, you can finally say, “Sorry, roaches — the end times are yours no more.”
-            </p>
+            <legend>Traps</legend>
+        <div>
+            <figure>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank"><img src="images/RoachTrapMKI.png" alt="roach trap" width="400" height="400"></a>
+                <figcaption>Big Bug</figcaption>
+            </figure>
+            <p>Starting at $19.99</p>
+            <p>“The solution when they stop being cute.”</p>
+        </div>
+        <div>
+            <figure>
+                <a href="https://www.youtube.com/watch?v=bOZT-UpRA2Y" target="_blank"><img src="images/RoachKillerMKII.png" alt="roach trap" width="400" height="400"></a>
+                <figcaption>Quantum Overkill</figcaption>
+            </figure>
+            <p>Starting at $39.99</p>
+            <p>“Existence optional.”</p>
+        </div>
+        <div>
+            <figure>
+                <a href="https://www.youtube.com/watch?v=BCb1jmpsfO8&list=RDBCb1jmpsfO8&start_radio=1" target="_blank"><img src="images/RoachKillerMKIII.png" alt="roach trap" width="400" height="400"></a>
+                <figcaption>Ashmaker 9000</figcaption>
+            </figure>
+            <p>Starting at $59.99</p>
+            <p>“Why squash when you can scorch?”</p>
+        </div>
         </fieldset>
     </main>
     <footer>

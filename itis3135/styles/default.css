@@ -108,3 +108,10 @@ caption{
         padding: 20px;
     }
 }
+
+@media (max-width: 1200px){
+    main{
+        width: 90%;
+        margin: 0 auto;
+    }
+}

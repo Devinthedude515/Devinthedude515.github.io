@@ -75,6 +75,16 @@ footer a:hover{
     transform: scale(1.4);
     color: lime;
 }
+
+div p{
+    text-align: center;
+}
+
+div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
     
 @media (max-width: 767px){
     body{

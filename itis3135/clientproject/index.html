@@ -12,12 +12,16 @@
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div data-include="components/header.html"></div>
+    <header>
+        <h1>Welcome to Harvest Haven!</h1>
+        <div data-include="components/header.html"></div>
+    </header>
     <main>
         <fieldset>
             <legend>The Opportunity</legend>
             <div>
                 <p>Harvest Haven meets the rising demand for fresh, organic, and locally sourced products. Our stand offers high-quality uncommon produce.</p>
+                <p>Click below for a fruit:</p>
                 <button id="surprise-button">Surprise Me!</button>
                 <p id="fruit-of-day"></p>
             </div>
@@ -32,7 +36,12 @@
                 <img src="images/HealthyHavenCustomers.png" alt="Health Conscious Customers" width="600" height="400">
                 <figcaption>Health-conscious customers appreciating fresh, organic produce at Harvest Haven.</figcaption>
             </figure>
-            <p>We target health-conscious individuals and familes seeking fresh, locally sourced produce. Our accessibility makes us an ideal choice for a wide range of consumers.</p>
+            <div>
+                <p>We target health-conscious individuals and familes seeking fresh, locally sourced produce. Our accessibility makes us an ideal choice for a wide range of consumers.</p>
+                <p>Click the button for a Fruit fact!</p>
+                <button id="fact-button">Show Fact</button>
+                <p id="fact-display"></p>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Meet our team</legend>

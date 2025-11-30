@@ -10,14 +10,21 @@
     <link rel="stylesheet" href="styles/project.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <title>Harvest Haven | Products</title>
-    
 </head>
 <body>
-    <div data-include="components/header.html"></div>
+    <header>
+        <h1>Products at Harvest Haven!</h1>
+        <div data-include="components/header.html"></div>
+    </header>
     <main>
         <fieldset>
             <legend>Uncommon Produce</legend>
-            <p>We at Harvest Haven make an effort to fill a unique market. We strive to make available to the community produce that is typically hard to procure.</p>
+            <div>
+                <p>We at Harvest Haven make an effort to fill a unique market. We strive to make available to the community produce that is typically hard to procure.</p>
+                <p>Click for Products!</p>
+                <button id="product-button">Guess the Fruit!</button>
+                <p id="type-of-product"></p>
+            </div>
             <figure>
                 <img src="images/HarverstHavenUncommon.jpg" alt="uncommon produce" width="600" height="400">
                 <figcaption>Variety of Uncommon Produce</figcaption>

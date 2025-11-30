@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="styles/project.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <title>Harvest Haven | Services</title>
-    
 </head>
 <body>
-    <div data-include="components/header.html"></div>
+    <header>
+        <h1>Services at Harvest Haven!</h1>
+        <div data-include="components/header.html"></div>
+    </header>
     <main>
         <fieldset>
             <legend>Store Layout and Operations</legend>
@@ -21,7 +23,12 @@
                 <img src="images/HarvestHavenStand.jpg" alt="Harvest Haven Store Layout" width="600" height="400">
                 <figcaption>Stand Layout</figcaption>
             </figure>
-            <p>Our stand features a U-shaped layout with fresh produce displays. We utilize samples and convenient payment methods to enhance the shopping experience.</p>
+            <div class="season-card-container">
+                    <p>Our stand features a U-shaped layout with fresh produce displays. We utilize samples and convenient payment methods to enhance the shopping experience.</p>
+                    <p>Click for Seasonal Service!</p>
+                    <button id="service-button">Seasonal Service</button>
+                    <p id="type-of-service"></p>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Workshop Classes</legend>

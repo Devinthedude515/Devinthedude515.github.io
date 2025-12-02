@@ -57,6 +57,9 @@ figure{
     text-align: center;
     gap: 10px;
 }
+img{
+    border-radius: 15px;
+}
 figcaption i{
     display: block;
 }

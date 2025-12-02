@@ -40,20 +40,24 @@ const uncommon = [
     {produce: "💛🍋"}
 ];
 
-// Working randomFruit function
-function randomFruit() {
-    const index = Math.floor(Math.random() * fruits.length);
-    const fruit = fruits[index];
+//global counter for array index
+let factIndex = 0;
+
+// Working Fruit function
+function Fruit() {
+    const fruit = fruits[factIndex];
 
     const output = document.getElementById("fruit-of-day");
     output.innerHTML = `<b>${fruit.name}</b> ${fruit.fact}`;
+
+    // Move to the next index, wrap at end
+    factIndex = (factIndex + 1) % fruits.length;
 }
 
-function randomFact() {
-    // Pick a random fact
-    const index = Math.floor(Math.random() * facts.length);
-    const selected = facts[index];
 
+function Fact() {
+    // Pick a fact
+    const selected = facts[factIndex];
     const output = document.getElementById("fact-display");
 
     // Remove + re-add animation class so it restarts
@@ -63,13 +67,14 @@ function randomFact() {
 
     // Update the displayed fact
     output.innerHTML = `${selected.info}`;
+
+    // Move to the next index, wrap at end
+    factIndex = (factIndex + 1) % facts.length;
 }
 
-// Working randomFruit function
-function randomSeason() {
-    const index = Math.floor(Math.random() * services.length);
-    const service = services[index];
-
+// Working Fruit function
+function Season() {
+    const service = services[factIndex];
     const output = document.getElementById("type-of-service");
 
     // Remove and re-add flip class to restart animation
@@ -78,12 +83,14 @@ function randomSeason() {
     output.classList.add("flip");
 
     output.innerHTML = `<b>${service.season}</b> ${service.info}`;
+
+    // Move to the next index, wrap at end
+    factIndex = (factIndex + 1) % services.length;
 }
 
 //random produce function
-function randomProduce() {
-    const index = Math.floor(Math.random() * uncommon.length);
-    const product = uncommon[index];
+function Produce() {
+    const product = uncommon[factIndex];
 
     const output = document.getElementById("type-of-product");
 
@@ -93,19 +100,22 @@ function randomProduce() {
     output.classList.add("fade");
 
     output.innerHTML = `${product.produce}`;
+
+    // Move to the next index, wrap at end
+    factIndex = (factIndex + 1) % uncommon.length;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    surpriseButton.addEventListener("click", randomFruit);
-    factButton.addEventListener("click", randomFact);
+    surpriseButton.addEventListener("click", Fruit);
+    factButton.addEventListener("click", Fact);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    serviceButton.addEventListener("click", randomSeason);
+    serviceButton.addEventListener("click", Season);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    productButton.addEventListener("click", randomProduce);
+    productButton.addEventListener("click", Produce);
 });
 
 

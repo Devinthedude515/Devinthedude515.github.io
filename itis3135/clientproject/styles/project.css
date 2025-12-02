@@ -158,6 +158,22 @@ div p{
     transform: scale(1.05);
 }
 
+#gardening-button{
+    background-color: #FF9300;
+    color: #321A37;
+    border: 2px solid #FF9300;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#gardening-button:hover {
+    background-color: lime;
+    transform: scale(1.05);
+}
+
 .season-card-container {
     display: flex;
     flex-direction: column;
@@ -192,6 +208,16 @@ div p{
 }
 
 @keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;}
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-reverse {
   0% {
     transform: translateX(-100%);
     opacity: 0;}

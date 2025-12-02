@@ -2,6 +2,7 @@ const surpriseButton = document.getElementById("surprise-button");
 const factButton = document.getElementById("fact-button");
 const serviceButton = document.getElementById("service-button");
 const productButton = document.getElementById("product-button");
+const gardeningButton = document.getElementById("gardening-button");
 
 // Array of exotic fruits
 const fruits = [
@@ -40,6 +41,14 @@ const uncommon = [
     {produce: "💛🍋"}
 ];
 
+//Array of what to bring gardening class
+const gardening = [
+    {item: "🌱 Seed packets for your favorite fruits and vegetables."},
+    {item: "🧤 Gardening gloves to protect your hands while working with soil."},
+    {item: "🪴 Small pots or containers for starting seedlings indoors."},
+    {item: "😁 A positive attidude and a willingness to learn 📖"}
+];
+
 //global counter for array index
 let factIndex = 0;
 
@@ -49,6 +58,11 @@ function Fruit() {
 
     const output = document.getElementById("fruit-of-day");
     output.innerHTML = `<b>${fruit.name}</b> ${fruit.fact}`;
+
+    // Remove + re-add animation class so it restarts
+    output.classList.remove("slide-in");
+    void output.offsetWidth; // <- forces browser to reflow
+    output.classList.add("slide-in");
 
     // Move to the next index, wrap at end
     factIndex = (factIndex + 1) % fruits.length;
@@ -88,7 +102,7 @@ function Season() {
     factIndex = (factIndex + 1) % services.length;
 }
 
-//random produce function
+// produce function
 function Produce() {
     const product = uncommon[factIndex];
 
@@ -105,6 +119,23 @@ function Produce() {
     factIndex = (factIndex + 1) % uncommon.length;
 }
 
+//gardening function
+function Gardening() {
+    const garden = gardening[factIndex];
+
+    const output = document.getElementById("type-of-gardening");
+
+    // Remove and re-add flip class to restart animation
+    output.classList.remove("flip");
+    void output.offsetWidth; // force reflow
+    output.classList.add("flip");
+
+    output.innerHTML = `${garden.item}`;
+
+    // Move to the next index, wrap at end
+    factIndex = (factIndex + 1) % gardening.length;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     surpriseButton.addEventListener("click", Fruit);
     factButton.addEventListener("click", Fact);
@@ -112,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     serviceButton.addEventListener("click", Season);
+    gardeningButton.addEventListener("click", Gardening);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

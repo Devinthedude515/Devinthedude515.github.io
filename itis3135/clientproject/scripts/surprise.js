@@ -32,7 +32,7 @@ const services = [
   { season: "Winter", info: "Pomegranate, Tangerine Varieties, Kumquat, Satsuma Mandarin" }
 ];
 
-//Array of Uncommon fruits
+//Array of Uncommon fruits emoji for guessing game
 const uncommon = [
     {produce: "🐉🍉"},
     {produce: "⭐🍏"},
